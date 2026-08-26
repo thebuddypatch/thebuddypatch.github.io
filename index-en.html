@@ -307,6 +307,53 @@
   .proof-row img{aspect-ratio:4/3.4;object-fit:contain;background:#fff}
   @media(max-width:980px){.bs-badge-img{width:56px;height:56px;top:-6px;left:8px}.bs-trust{gap:10px;font-size:13px}.bs-trust span{padding:7px 12px}}
   @media(max-width:768px){.proof-row{grid-template-columns:1fr}}
+
+  /* ==========================================================
+     MOBILE ONLY — everything below is inside a max-width media
+     query, so the desktop layout is completely untouched.
+     ========================================================== */
+  @media(max-width:980px){
+    html,body{overflow-x:hidden}
+
+    /* keep-all forbids line breaks inside Thai runs on Safari/iOS,
+       which pushed the whole page wider than the screen */
+    .about-left p{word-break:normal;overflow-wrap:break-word}
+
+    /* hero: float the GABA / Mg bubbles beside the box, not over it */
+    .bs-visual{
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      grid-template-rows:auto auto;
+      align-items:center;justify-items:center;
+      column-gap:8px;min-height:0;padding-bottom:78px
+    }
+    .bs-bub{position:static;width:74px;height:auto;top:auto;left:auto}
+    .bs-gaba{grid-column:1;grid-row:1;align-self:end}
+    .bs-mg{grid-column:1;grid-row:2;align-self:start;margin-top:6px}
+    .bs-box-wrap{grid-column:2;grid-row:1/span 2;width:min(250px,100%)}
+    .bs-box{max-width:100%}
+    .bs-wrist{width:92px;left:auto;right:0;top:auto;bottom:12%}
+    .bs-badge-img{width:52px;height:52px;top:-8px;left:2px}
+  }
+
+  @media(max-width:880px){
+    /* product sections: orbit icons beside the pouch, like desktop */
+    .mode-stage{
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      grid-template-rows:auto auto;
+      align-items:center;justify-items:center;
+      column-gap:6px;row-gap:10px;
+      height:auto;margin:16px 0
+    }
+    .orbit-item{position:static;width:58px;height:58px;animation:float-orbit 7s ease-in-out infinite}
+    .orbit-item svg{width:26px;height:26px}
+    .oi-1{grid-column:1;grid-row:1;align-self:end}
+    .oi-2{grid-column:1;grid-row:2;align-self:start;animation-delay:-1.5s}
+    .oi-3{grid-column:3;grid-row:1/span 2;animation-delay:-2.5s}
+    .mode-pouch{grid-column:2;grid-row:1/span 2;height:auto;width:100%;max-width:210px}
+    .mode-relax .mode-pouch{height:auto;max-width:224px}
+  }
 </style>
 </head>
 <body>
