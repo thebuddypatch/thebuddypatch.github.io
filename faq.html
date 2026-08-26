@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ · The Buddy</title>
+<meta name="description" content="คำถามที่พบบ่อยเกี่ยวกับ The Buddy — แผ่นแปะ supplement สูตร Revive, Focus, Night Out">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EFE6;
+    --mist:#F8FBFD;
+    --ink:#0E1F2A;
+    --char:#282828;
+    --teal:#3FB8C9;
+    --mint:#7DE3C4;
+    --sky:#A8D8E8;
+    --trust:#78A2EE;
+    --deep:#275DC5;
+    --midnight:#0A1633;
+    --marigold:#F5C46B;
+    --apricot:#F8B373;
+    --mango:#ED7E3C;
+    --honey:#FAE0B5;
+    --lilac:#B399D6;
+    --dusk:#A78BD0;
+    --plummist:#8870B8;
+    --violet:#6F5BA8;
+    --petal:#E8D9F0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);color:var(--ink);
+    font-family:'Figtree','Helvetica Neue',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;font-size:16px
+  }
+  .th{font-family:'IBM Plex Sans Thai','Sarabun','Figtree',sans-serif}
+  a{color:inherit;text-decoration:none}
+
+  /* ========== HEADER (matches index.html) ========== */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(248,251,253,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(14,31,42,0.06);
+    transition:background 0.3s
+  }
+  .nav-inner{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+  .wm{font-size:22px;font-weight:600;letter-spacing:-0.01em}
+  .wm span{color:var(--teal)}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{font-size:14px;color:var(--char);font-weight:500}
+  .nav-links a:hover,.nav-links a.active{color:var(--teal)}
+  .nav-right{display:flex;gap:12px;align-items:center}
+  .lang-toggle{
+    background:rgba(255,255,255,0.6);backdrop-filter:blur(10px);
+    border:1px solid rgba(63,184,201,0.15);border-radius:100px;
+    padding:7px 14px;font-size:12px;color:var(--ink);font-weight:500
+  }
+  .lang-toggle span{color:var(--char);opacity:0.5;margin:0 4px}
+  .btn-primary{
+    background:var(--ink);color:var(--mist);padding:12px 22px;
+    border-radius:100px;font-size:13px;font-weight:600;letter-spacing:-0.01em;
+    display:inline-flex;align-items:center;gap:6px;border:none;cursor:pointer;
+    transition:transform 0.2s,box-shadow 0.2s
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(14,31,42,0.18)}
+  @media(max-width:768px){.nav-links{display:none}.wm{font-size:18px}}
+
+  /* ========== FAQ HERO ========== */
+  .faq-hero{
+    position:relative;padding:140px 32px 80px;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(125,227,196,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 60%, rgba(120,162,238,0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(168,216,232,0.4) 0%, transparent 55%),
+      linear-gradient(135deg, #E5F4F6 0%, #ECF3FB 100%)
+  }
+  .faq-hero-inner{max-width:1080px;margin:0 auto;text-align:center;position:relative;z-index:2}
+  .breadcrumb{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;color:var(--char);opacity:0.6;margin-bottom:24px;font-weight:500
+  }
+  .breadcrumb a:hover{color:var(--teal);opacity:1}
+  .breadcrumb .sep{opacity:0.4}
+  .eye{
+    display:inline-block;text-transform:uppercase;letter-spacing:0.18em;font-size:11px;font-weight:600;
+    color:var(--deep);background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);
+    padding:7px 14px;border-radius:100px;margin-bottom:24px;border:1px solid rgba(63,184,201,0.18)
+  }
+  .faq-hero h1{
+    font-size:clamp(40px,5.5vw,72px);font-weight:300;letter-spacing:-0.025em;line-height:1.05;
+    margin-bottom:18px
+  }
+  .faq-hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--teal),var(--deep));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
+  .faq-hero p{font-size:18px;color:var(--char);opacity:0.75;max-width:620px;margin:0 auto 36px;line-height:1.6}
+
+  /* Floating patches in hero (decorative) */
+  .float-patches{position:absolute;inset:0;pointer-events:none}
+  .float-patches .fp{
+    position:absolute;border-radius:22%;
+    border:1.5px solid rgba(255,255,255,0.55);
+    box-shadow:0 24px 60px rgba(14,31,42,0.12),inset 0 1px 0 rgba(255,255,255,0.5);
+    opacity:0.85
+  }
+  .float-patches .fp::before{
+    content:"";position:absolute;top:10%;left:14%;width:42%;height:20%;
+    background:radial-gradient(ellipse,rgba(255,255,255,0.7) 0%,transparent 70%);
+    border-radius:50%;transform:rotate(-15deg)
+  }
+  .fp-1{width:140px;aspect-ratio:1;top:18%;left:6%;
+    background:radial-gradient(ellipse at 25% 25%,rgba(255,255,255,0.45) 0%,transparent 50%),
+               linear-gradient(135deg,var(--mint),var(--teal),var(--deep));
+    animation:floatA 8s ease-in-out infinite}
+  .fp-2{width:110px;aspect-ratio:1;top:24%;right:8%;
+    background:radial-gradient(ellipse at 25% 25%,rgba(255,255,255,0.5) 0%,transparent 50%),
+               linear-gradient(135deg,var(--honey),var(--marigold),var(--mango));
+    animation:floatB 9s ease-in-out infinite -1s}
+  .fp-3{width:90px;aspect-ratio:1;bottom:14%;left:12%;
+    background:radial-gradient(ellipse at 25% 25%,rgba(255,255,255,0.5) 0%,transparent 50%),
+               linear-gradient(135deg,var(--petal),var(--lilac),var(--violet));
+    animation:floatC 7s ease-in-out infinite -2s}
+  .fp-4{width:80px;aspect-ratio:1;bottom:22%;right:14%;
+    background:radial-gradient(ellipse at 25% 25%,rgba(255,255,255,0.5) 0%,transparent 50%),
+               linear-gradient(135deg,var(--sky),var(--trust));
+    animation:floatA 10s ease-in-out infinite -0.5s}
+  @keyframes floatA{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(4deg)}}
+  @keyframes floatB{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-12px) rotate(-3deg)}}
+  @keyframes floatC{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+  @media(max-width:768px){
+    .fp-1{width:90px;top:8%;left:-2%}
+    .fp-2{width:70px;top:14%;right:-2%}
+    .fp-3{width:60px;bottom:8%;left:4%}
+    .fp-4{width:55px;bottom:14%;right:4%}
+  }
+
+  /* Search bar */
+  .faq-search{
+    max-width:560px;margin:0 auto;position:relative;
+    background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.7);border-radius:100px;
+    box-shadow:0 18px 50px rgba(14,31,42,0.08);
+    display:flex;align-items:center;gap:8px;padding:8px 8px 8px 20px
+  }
+  .faq-search svg{width:18px;height:18px;color:var(--char);opacity:0.5;flex-shrink:0}
+  .faq-search input{
+    flex:1;border:none;outline:none;background:transparent;
+    font-size:15px;color:var(--ink);font-family:inherit;padding:14px 4px
+  }
+  .faq-search input::placeholder{color:var(--char);opacity:0.5}
+  .faq-search .clear{
+    background:rgba(14,31,42,0.06);border:none;border-radius:100px;
+    width:36px;height:36px;display:none;align-items:center;justify-content:center;cursor:pointer;
+    color:var(--char);font-size:18px;font-weight:300
+  }
+  .faq-search.has-text .clear{display:flex}
+
+  /* Quick-jump chips */
+  .quick-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+  .chip{
+    background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);
+    border:1px solid rgba(63,184,201,0.18);border-radius:100px;
+    padding:9px 16px;font-size:13px;color:var(--ink);font-weight:500;
+    cursor:pointer;transition:all 0.2s
+  }
+  .chip:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
+
+  /* ========== BODY ========== */
+  .faq-body{padding:80px 32px 120px;background:var(--cream);position:relative;overflow:hidden}
+  .faq-body::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 30% 0%,rgba(125,227,196,0.12) 0%,transparent 50%),
+               radial-gradient(ellipse at 70% 100%,rgba(168,216,232,0.12) 0%,transparent 50%);
+    pointer-events:none
+  }
+  .faq-body-inner{max-width:920px;margin:0 auto;position:relative;z-index:2}
+
+  /* Category section */
+  .cat-section{margin-bottom:64px;scroll-margin-top:120px}
+  .cat-header{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+  .cat-icon{
+    width:56px;height:56px;border-radius:22%;flex-shrink:0;
+    border:1.5px solid rgba(255,255,255,0.55);
+    box-shadow:0 10px 24px rgba(14,31,42,0.1),inset 0 1px 0 rgba(255,255,255,0.5);
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    position:relative;overflow:hidden
+  }
+  .cat-icon::before{
+    content:"";position:absolute;top:10%;left:14%;width:42%;height:22%;
+    background:radial-gradient(ellipse,rgba(255,255,255,0.7) 0%,transparent 70%);
+    border-radius:50%;transform:rotate(-15deg)
+  }
+  .cat-icon svg{width:26px;height:26px;position:relative;z-index:2}
+  .cat-1 .cat-icon{background:linear-gradient(135deg,var(--mint),var(--teal),var(--deep))}
+  .cat-2 .cat-icon{background:linear-gradient(135deg,var(--sky),var(--trust))}
+  .cat-3 .cat-icon{background:linear-gradient(135deg,var(--mint),var(--sky),var(--teal))}
+  .cat-4 .cat-icon{background:linear-gradient(135deg,var(--honey),var(--marigold),var(--mango))}
+  .cat-5 .cat-icon{background:linear-gradient(135deg,var(--petal),var(--lilac),var(--violet))}
+  .cat-header h2{font-size:28px;font-weight:500;letter-spacing:-0.01em;line-height:1.2}
+  .cat-header h2 small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:0.18em;color:var(--deep);opacity:0.85;font-weight:600;margin-bottom:4px}
+
+  .faq-list{display:flex;flex-direction:column;gap:10px}
+  .faq-item{
+    background:rgba(255,255,255,0.78);backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,0.5);border-radius:18px;
+    overflow:hidden;
+    transition:all 0.3s
+  }
+  .faq-item.open{background:rgba(255,255,255,0.95);box-shadow:0 14px 40px rgba(14,31,42,0.08)}
+  .faq-item.hidden{display:none}
+  .faq-q{
+    padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;
+    font-size:16px;font-weight:600;color:var(--ink);gap:16px
+  }
+  .faq-q .q-text{flex:1}
+  .faq-q .q-num{
+    font-size:11px;color:var(--deep);font-weight:700;letter-spacing:0.08em;
+    background:rgba(63,184,201,0.12);padding:3px 8px;border-radius:6px;
+    margin-right:8px;flex-shrink:0
+  }
+  .faq-icon{
+    width:32px;height:32px;border-radius:50%;background:rgba(63,184,201,0.15);
+    display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:22px;font-weight:300;
+    flex-shrink:0;transition:transform 0.3s
+  }
+  .faq-item.open .faq-icon{transform:rotate(45deg);background:var(--teal);color:#fff}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;
+    padding:0 24px;
+    color:var(--char);font-size:15px;line-height:1.7;opacity:0.9
+  }
+  .faq-item.open .faq-a{max-height:600px;padding:0 24px 22px}
+  .faq-a p{margin-bottom:10px}
+  .faq-a p:last-child{margin-bottom:0}
+  .faq-a strong{color:var(--ink)}
+  .faq-a ul{margin:6px 0 10px 0;padding-left:0;list-style:none}
+  .faq-a ul li{padding-left:20px;position:relative;margin-bottom:6px}
+  .faq-a ul li::before{content:"";position:absolute;left:4px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+  .faq-a .pill-tag{
+    display:inline-block;background:rgba(63,184,201,0.12);color:var(--deep);
+    font-size:12px;font-weight:600;padding:3px 10px;border-radius:100px;margin:2px 4px 2px 0
+  }
+  .faq-a .pill-tag.warn{background:rgba(237,126,60,0.15);color:var(--mango)}
+
+  /* No results */
+  .no-results{
+    text-align:center;padding:60px 20px;color:var(--char);opacity:0.6;
+    display:none
+  }
+  .no-results.show{display:block}
+  .no-results h3{font-size:20px;font-weight:500;margin-bottom:8px;color:var(--ink)}
+
+  /* ========== PEEL.STICK.FEEL FOOTER BLOCK ========== */
+  .faq-footer-card{
+    background:linear-gradient(180deg,#D8F0F0 0%,#C4E8E8 100%);
+    border-radius:32px;padding:64px 32px;text-align:center;
+    box-shadow:0 24px 60px rgba(14,31,42,0.1),inset 0 1px 0 rgba(255,255,255,0.6);
+    border:1px solid rgba(255,255,255,0.5);position:relative;overflow:hidden;
+    margin-top:64px
+  }
+  .faq-footer-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,0.5) 0%,transparent 50%);
+    pointer-events:none
+  }
+  .faq-footer-card > *{position:relative;z-index:2}
+  .footer-patches{display:flex;justify-content:center;gap:16px;margin-bottom:32px}
+  .footer-patches .fp{
+    width:90px;aspect-ratio:1;border-radius:22%;
+    border:1.5px solid rgba(255,255,255,0.6);
+    box-shadow:0 16px 36px rgba(14,31,42,0.12),inset 0 1px 0 rgba(255,255,255,0.5);
+    position:relative
+  }
+  .footer-patches .fp::before{
+    content:"";position:absolute;top:10%;left:14%;width:42%;height:20%;
+    background:radial-gradient(ellipse,rgba(255,255,255,0.7) 0%,transparent 70%);
+    border-radius:50%;transform:rotate(-15deg)
+  }
+  .fp-teal{background:linear-gradient(135deg,var(--mint),var(--teal),var(--deep))}
+  .fp-marigold{background:linear-gradient(135deg,var(--honey),var(--marigold),var(--mango));margin-top:14px}
+  .fp-lilac{background:linear-gradient(135deg,var(--petal),var(--lilac),var(--violet))}
+  .faq-footer-card h3{font-size:48px;font-weight:300;letter-spacing:-0.02em;margin-bottom:8px;color:var(--ink)}
+  .faq-footer-card .ff-sub{font-size:16px;color:var(--char);opacity:0.7;margin-bottom:32px}
+  .faq-footer-card .ff-cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:18px 32px;border-radius:100px;font-size:15px;font-weight:600;margin-bottom:18px;transition:transform 0.2s,box-shadow 0.2s}
+  .faq-footer-card .ff-cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(14,31,42,0.22)}
+  .ff-secondary{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .ff-pill{
+    background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.5);border-radius:100px;
+    padding:12px 20px;font-size:13px;color:var(--ink);font-weight:600;
+    display:inline-flex;align-items:center;gap:8px
+  }
+  .ff-pill .dot{width:8px;height:8px;border-radius:50%}
+  .ff-pill .dot.shopee{background:#EE4D2D}
+  .ff-pill .dot.lazada{background:#0F146D}
+
+  /* ========== FOOTER ========== */
+  footer.site{
+    background:var(--midnight);color:rgba(255,255,255,0.7);padding:64px 32px 24px;
+    position:relative;overflow:hidden
+  }
+  footer.site::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 80% 20%,rgba(63,184,201,0.15) 0%,transparent 50%),
+               radial-gradient(ellipse at 20% 80%,rgba(120,162,238,0.15) 0%,transparent 50%);
+    pointer-events:none
+  }
+  .footer-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+  .footer-col h5{color:#fff;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px}
+  .footer-col .wm{color:#fff;margin-bottom:8px;font-size:24px}
+  .footer-col .tagline{font-size:13px;opacity:0.7;margin-bottom:12px;line-height:1.5}
+  .footer-col .est{font-size:11px;opacity:0.5}
+  .footer-col ul{list-style:none}
+  .footer-col li{padding:5px 0;font-size:13px}
+  .footer-col li a:hover{color:var(--mint)}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-size:11px;color:rgba(255,255,255,0.4)
+  }
+  .footer-bottom .links{display:flex;gap:16px}
+  @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="wm">the buddy<span>+</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">เกี่ยวกับเรา</a></li>
+      <li><a href="index.html#products">สินค้า</a></li>
+      <li><a href="index.html#reviews">รีวิว</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="index.html#promo">โปรโมชั่น</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">🌐 <a href="faq.html" style="color:var(--ink)">TH</a><span>·</span><a href="faq-en.html" style="opacity:0.45;color:var(--char)">EN</a></div>
+      <a href="https://lin.ee/VjYsn62" class="btn-primary">สั่งซื้อ →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== FAQ HERO ========== -->
+<section class="faq-hero">
+  <div class="float-patches">
+    <div class="fp fp-1"></div>
+    <div class="fp fp-2"></div>
+    <div class="fp fp-3"></div>
+    <div class="fp fp-4"></div>
+  </div>
+  <div class="faq-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าแรก</a>
+      <span class="sep">›</span>
+      <span>FAQ</span>
+    </div>
+    <div class="eye">Help Center · คำถามที่พบบ่อย</div>
+    <h1 class="th">สงสัยอะไร <em>อ่านที่นี่ก่อน</em></h1>
+    <p class="th">รวมทุกคำถามเกี่ยวกับ The Buddy — ตั้งแต่วิธีใช้แผ่นแปะ ส่วนผสม ความปลอดภัย ไปจนถึงการสั่งซื้อและจัดส่ง</p>
+
+    <div class="faq-search" id="searchWrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="ค้นหาคำถาม เช่น 'นอนหลับ', 'ส่งฟรี', 'แพ้กาว'..." class="th">
+      <button class="clear" id="clearBtn" aria-label="Clear search">×</button>
+    </div>
+
+    <div class="quick-chips">
+      <a href="#cat-product" class="chip th">เกี่ยวกับสินค้า</a>
+      <a href="#cat-usage" class="chip th">วิธีใช้</a>
+      <a href="#cat-safety" class="chip th">ส่วนผสม &amp; ความปลอดภัย</a>
+      <a href="#cat-order" class="chip th">การสั่งซื้อ</a>
+      <a href="#cat-returns" class="chip th">คืนสินค้า &amp; รับประกัน</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ BODY ========== -->
+<section class="faq-body">
+  <div class="faq-body-inner">
+
+    <!-- ========== Cat 1 · About Product ========== -->
+    <div class="cat-section cat-1" id="cat-product">
+      <div class="cat-header">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12h6M12 9v6"/></svg>
+        </div>
+        <h2 class="th"><small>01 · Product</small>เกี่ยวกับสินค้า</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item open" data-keywords="คือ buddy plus patch แผ่นแปะ supplement transdermal ออกฤทธิ์ ใหม่">
+          <div class="faq-q th"><span class="q-num">Q1</span><span class="q-text">แผ่นแปะ The Buddy คืออะไร?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>The Buddy คือ <strong>Transdermal Supplement Patch</strong> — แผ่นแปะที่ส่งสารอาหารผ่านผิวหนังเข้าสู่ร่างกายโดยตรง ออกฤทธิ์เร็วภายใน 30 นาที — 1 ชั่วโมง</p>
+            <p>แตกต่างจากวิตามินแบบเม็ดทั่วไปตรงที่ ไม่ต้องผ่านกระเพาะอาหาร ลดการสูญเสียสารอาหาร ทำให้ร่างกายได้รับประโยชน์ในระดับที่สูงกว่า เห็นผลไวกว่า และไม่รบกวนระบบย่อยอาหาร</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="กี่สูตร สูตรไหน revive focus night out แตกต่าง">
+          <div class="faq-q th"><span class="q-num">Q2</span><span class="q-text">มีกี่สูตร? แต่ละสูตรต่างกันยังไง?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>ปัจจุบันมีทั้งหมด <strong>3 สูตรหลัก</strong> ออกแบบให้ตรงกับโมเมนต์ในชีวิตที่ต่างกัน:</p>
+            <ul>
+              <li><strong>Relax Mode</strong> — แผ่นแปะนอนหลับ · GABA 20,000 mcg + L-Theanine + Ashwagandha · เหมาะกับคนนอนยาก, jet lag, นอนน้อย</li>
+              <li><strong>Focus Mode</strong> — แผ่นแปะโฟกัส · Vitamin B Complex + Zinc + L-Carnitine + Ginkgo Biloba · เหมาะกับวันทำงานยาว ๆ ทดแทนการพึ่งกาแฟ</li>
+              <li><strong>Night Out Mode</strong> — แผ่นแปะแก้แฮงค์ · Green Tea + Milk Thistle + NAC + Vitamin B Complex · เหมาะกับก่อน-หลังปาร์ตี้</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="แตกต่าง ยา วิตามินเม็ด ดีกว่า ทำไม">
+          <div class="faq-q th"><span class="q-num">Q3</span><span class="q-text">ต่างจากวิตามินเม็ดทั่วไปยังไง?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <ul>
+              <li><strong>ออกฤทธิ์เร็วกว่า</strong> — เห็นผลใน 30 นาที (วิตามินเม็ดใช้ 1–2 ชม.)</li>
+              <li><strong>ดูดซึมดีกว่า</strong> — ไม่ผ่านกระเพาะ ไม่ถูกเอนไซม์ในตับย่อยทิ้ง</li>
+              <li><strong>ไม่ระคายเคืองกระเพาะ</strong> — เหมาะกับคนกินยาแล้วคลื่นไส้</li>
+              <li><strong>ออกฤทธิ์นานต่อเนื่อง 4–8 ชม.</strong> — ปล่อยสารอาหารแบบค่อยเป็นค่อยไป</li>
+              <li><strong>ใช้สะดวก</strong> — แค่แปะแล้วลืม ไม่ต้องคอยกินทุกมื้อ</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="เหมาะกับใคร ใช้ได้ไหม อายุ">
+          <div class="faq-q th"><span class="q-num">Q4</span><span class="q-text">เหมาะกับใครบ้าง?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>เหมาะกับ:</strong> ผู้ที่ต้องการ supplement ที่สะดวก รวดเร็ว ไม่ชอบกินยา หรือมีปัญหาในการกลืน, คนทำงานยุ่ง, นักเดินทาง, นักเรียน/นักศึกษา, คนนอนน้อย, ปาร์ตี้บ่อย</p>
+            <p><strong>ผู้ที่ควรปรึกษาแพทย์ก่อนใช้:</strong></p>
+            <ul>
+              <li>สตรีมีครรภ์ หรืออยู่ระหว่างให้นมบุตร</li>
+              <li>ผู้ที่มีโรคประจำตัวและกินยาประจำ</li>
+              <li>เด็กอายุต่ำกว่า 18 ปี</li>
+              <li>ผู้ที่แพ้สารใดสารหนึ่งในส่วนผสม</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ขนาด แผ่น ใหญ่ เล็ก สี">
+          <div class="faq-q th"><span class="q-num">Q5</span><span class="q-text">แผ่นแปะขนาดเท่าไร? เห็นชัดบนผิวมั้ย?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>แผ่นแปะมีขนาดประมาณ <strong>2.5 × 2.5 ซม.</strong> สีใส-ขาวขุ่น ออกแบบให้ดูเป็นกลาง เมื่อแปะบนผิวจะกลมกลืน ไม่สะดุดตา</p>
+            <p>หนาเพียง 0.3 มม. แปะแล้วแทบไม่รู้สึกเลย เหมือนสติกเกอร์เล็ก ๆ บนผิว · สามารถซ่อนใต้เสื้อ ใต้ผม หรือบริเวณที่ไม่ค่อยเห็นได้</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== Cat 2 · Usage ========== -->
+    <div class="cat-section cat-2" id="cat-usage">
+      <div class="cat-header">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h2 class="th"><small>02 · How to use</small>วิธีใช้งาน</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item" data-keywords="ใช้งาน วิธี ขั้นตอน แปะ ยังไง">
+          <div class="faq-q th"><span class="q-num">Q6</span><span class="q-text">ใช้งานอย่างไร? วิธีแปะที่ถูกต้อง</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>ใช้ง่ายเพียง 3 ขั้นตอน:</p>
+            <ul>
+              <li><strong>1) ทำความสะอาดผิว</strong> — เช็ดบริเวณที่จะแปะให้แห้งสะอาด ปราศจากครีม น้ำมัน หรือเหงื่อ</li>
+              <li><strong>2) ลอกแผ่นกาว แล้วแปะ</strong> — บริเวณที่แนะนำ: ข้อมือด้านใน, ต้นแขน, หลังหู, หลังคอ, ใต้ราวนม</li>
+              <li><strong>3) กดให้แน่น 10 วินาที</strong> — เพื่อให้กาวยึดกับผิว แล้วใช้งานได้ 4–8 ชั่วโมง · ลอกออกเมื่อไม่ต้องการ</li>
+            </ul>
+            <p><span class="pill-tag">Tip</span> เริ่มใช้ก่อนกิจกรรม 30 นาที เพื่อให้ออกฤทธิ์ทันเวลา</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="กี่นาที เห็นผล ออกฤทธิ์ ผล">
+          <div class="faq-q th"><span class="q-num">Q7</span><span class="q-text">กี่นาทีถึงเห็นผล? ผลอยู่นานแค่ไหน?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>ออกฤทธิ์:</strong> 30 นาที – 1 ชั่วโมงหลังแปะ</p>
+            <p><strong>ผลคงอยู่:</strong> 4–8 ชั่วโมง ขึ้นกับสูตรและบุคคล</p>
+            <ul>
+              <li>Relax Mode — ออกฤทธิ์ใน 30 นาที · ช่วยหลับลึก 6–8 ชม.</li>
+              <li>Focus Mode — ออกฤทธิ์ใน 30–45 นาที · โฟกัสได้ 4–6 ชม.</li>
+              <li>Night Out Mode — ออกฤทธิ์ใน 30–60 นาที · ฤทธิ์ต่อเนื่อง 6–8 ชม.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="กี่แผ่น ต่อวัน เกิน หลายแผ่น">
+          <div class="faq-q th"><span class="q-num">Q8</span><span class="q-text">ใช้กี่แผ่นต่อวัน? ใช้พร้อมกันหลายสูตรได้ไหม?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>แนะนำ <strong>1 แผ่นต่อวันต่อสูตร</strong> เพื่อความปลอดภัย</p>
+            <p>หากต้องการใช้ <strong>2 สูตรร่วมกัน</strong> (เช่น Focus ตอนกลางวัน + Relax ตอนกลางคืน) สามารถทำได้ แต่ควรเว้นช่วง 4 ชั่วโมงขึ้นไประหว่างสองสูตร และไม่แนะนำให้แปะพร้อมกันเกิน 2 สูตรในวันเดียว</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="อาบน้ำ ออกกำลังกาย เหงื่อ ติดอยู่">
+          <div class="faq-q th"><span class="q-num">Q9</span><span class="q-text">อาบน้ำ / ออกกำลังกาย / เหงื่อออก ใช้ได้มั้ย?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>เหงื่อปกติ:</strong> แผ่นกาวกันเหงื่อได้ระดับหนึ่ง สามารถใช้ระหว่างทำงาน / เดินทางได้ปกติ</p>
+            <p><strong>ออกกำลังกาย / อาบน้ำ:</strong> แนะนำให้ลอกออกก่อน หรือเลือกแปะในบริเวณที่ไม่โดนน้ำเต็มที่ (เช่น ต้นแขนแทนข้อมือ)</p>
+            <p><span class="pill-tag warn">ข้อจำกัด</span> ไม่กันน้ำสำหรับการแช่/ว่ายน้ำ — โดนน้ำเยอะกาวอาจหลุด</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="แปะตรงไหน บริเวณ ผิว ที่ไหน">
+          <div class="faq-q th"><span class="q-num">Q10</span><span class="q-text">ควรแปะบริเวณไหน? ห้ามแปะตรงไหน?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>บริเวณแนะนำ</strong> (ผิวเรียบ บาง ไม่ค่อยมีขน):</p>
+            <ul>
+              <li>ข้อมือด้านใน · ต้นแขนด้านใน · ไหล่</li>
+              <li>หลังหู · หลังคอ · ต้นคอ</li>
+              <li>ใต้ราวนม · บริเวณท้องด้านข้าง</li>
+            </ul>
+            <p><strong>หลีกเลี่ยง:</strong> ผิวที่มีบาดแผล สิว ผื่น ไหม้แดด หรือบริเวณที่กำลังระคายเคือง · หลีกเลี่ยงใบหน้า รอบดวงตา และเยื่อบุอ่อน</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== Cat 3 · Safety ========== -->
+    <div class="cat-section cat-3" id="cat-safety">
+      <div class="cat-header">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+        </div>
+        <h2 class="th"><small>03 · Safety</small>ส่วนผสม &amp; ความปลอดภัย</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item" data-keywords="ส่วนผสม natural ธรรมชาติ สมุนไพร gaba">
+          <div class="faq-q th"><span class="q-num">Q11</span><span class="q-text">ส่วนผสมทำมาจากอะไร? เป็นธรรมชาติมั้ย?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>ทุกสูตรใช้สารสกัด <strong>100% Natural</strong> จากธรรมชาติ ผ่านการคัดเลือกอย่างเข้มงวด ไม่มีสารกระตุ้น ไม่มีสารเสพติด ไม่มียาตามแพทย์</p>
+            <ul>
+              <li><strong>Relax:</strong> GABA, L-Theanine, Ashwagandha, 5-HTP, Valerian Root, Marigold Extract</li>
+              <li><strong>Focus:</strong> Vitamin B Complex, Zinc, L-Carnitine, Ginkgo Biloba, Centella Asiatica Extract</li>
+              <li><strong>Night Out:</strong> Green Tea, Milk Thistle, NAC, Vitamin B Complex, Vernonia Cinerea, Thunbergia Laurifolia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="แพ้ กาว ระคายเคือง ผิวบาง">
+          <div class="faq-q th"><span class="q-num">Q12</span><span class="q-text">แพ้แผ่นกาวมั้ย? ระคายเคืองมั้ย?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>ใช้กาว <strong>medical-grade</strong> มาตรฐานเดียวกับที่ใช้ทางการแพทย์ ปลอดภัยกับผิวสัมผัส ผ่านการทดสอบความปลอดภัยทางผิวหนัง (dermatologically tested)</p>
+            <p>ผู้ที่มีผิวบอบบางบางท่านอาจมีอาการแดง คันเล็กน้อย — หากเกิดอาการ <strong>ลอกออกทันที</strong> และล้างน้ำเปล่าให้สะอาด · หากอาการไม่ดีขึ้นใน 24 ชั่วโมง แนะนำพบแพทย์</p>
+            <p><span class="pill-tag">Tip</span> ทดลองแปะที่ข้อมือก่อนใช้จริงในครั้งแรก เพื่อทดสอบการแพ้</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ตั้งครรภ์ ให้นม สตรี เด็ก อายุ ปลอดภัย">
+          <div class="faq-q th"><span class="q-num">Q13</span><span class="q-text">ตั้งครรภ์ / ให้นมบุตร / เด็ก ใช้ได้มั้ย?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>ไม่แนะนำ</strong> สำหรับ:</p>
+            <ul>
+              <li>สตรีมีครรภ์ หรือกำลังพยายามจะมีบุตร</li>
+              <li>สตรีที่อยู่ระหว่างให้นมบุตร</li>
+              <li>เด็กและเยาวชนอายุต่ำกว่า 18 ปี</li>
+            </ul>
+            <p>เนื่องจากยังไม่มีข้อมูลความปลอดภัยเพียงพอในกลุ่มเหล่านี้ · หากต้องการใช้ ปรึกษาแพทย์ก่อนเสมอ</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="กินยา ประจำ ร่วม กับ ยา อื่น ปลอดภัย">
+          <div class="faq-q th"><span class="q-num">Q14</span><span class="q-text">ใช้แผ่นแปะแล้วกินสมุนไพร/วิตามิน/ยาอื่นได้ไหม?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>โดยทั่วไป <strong>สามารถใช้ร่วมกับ supplement อื่นได้</strong> เนื่องจาก The Buddy เป็นแค่ supplement ในรูปแบบ patch ไม่ใช่ยา</p>
+            <p>แต่หากใช้<strong>ยาประจำตัว</strong> (เช่น ยานอนหลับ ยาความดัน ยาต้านซึมเศร้า ยาแก้เครียด) ควร <strong>ปรึกษาแพทย์ก่อนใช้</strong> เพราะส่วนผสมบางตัว (เช่น GABA, 5-HTP) อาจเสริมฤทธิ์กับยาบางชนิด</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ทดสอบ รับรอง อย certificate กรมวิทย">
+          <div class="faq-q th"><span class="q-num">Q15</span><span class="q-text">ผ่านการทดสอบ/รับรองอะไรบ้าง?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <ul>
+              <li><strong>ขึ้นทะเบียน อย.</strong> ครบทุกสูตร · เลขที่ อย. xx-x-xxxxx-x-xxxx</li>
+              <li><strong>สูตรพัฒนาโดยทีมเภสัชกร</strong> และผู้เชี่ยวชาญด้านสารเสริมอาหาร</li>
+              <li>ผ่านการทดสอบ <strong>ความปลอดภัยทางผิวหนัง</strong> (dermatologically tested)</li>
+              <li>ผลิตในโรงงานมาตรฐาน <strong>GMP</strong> ที่ผ่านการรับรอง</li>
+              <li>ไม่ทดลองในสัตว์ · ส่วนผสม Non-GMO</li>
+            </ul>
+            <p><span class="pill-tag warn">หมายเหตุ</span> แผ่นแปะไม่มีส่วนช่วยในการรักษาโรค</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== Cat 4 · Order & Shipping ========== -->
+    <div class="cat-section cat-4" id="cat-order">
+      <div class="cat-header">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </div>
+        <h2 class="th"><small>04 · Order &amp; Shipping</small>การสั่งซื้อ &amp; จัดส่ง</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item" data-keywords="ราคา ขนาด กี่ชิ้น ซอง bundle">
+          <div class="faq-q th"><span class="q-num">Q16</span><span class="q-text">ขนาด/ราคาของแต่ละสูตร?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>ทุกสูตร <strong>6 ชิ้น/ซอง</strong> (1 สัปดาห์ ของการใช้งานต่อเนื่อง)</p>
+            <ul>
+              <li><strong>Relax Mode</strong> — ฿279 (จากปกติ ฿390)</li>
+              <li><strong>Focus Mode</strong> — ฿259 (จากปกติ ฿350)</li>
+              <li><strong>Night Out Mode</strong> — ฿259 (จากปกติ ฿350)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ช่องทาง สั่งซื้อ line shopee lazada tiktok">
+          <div class="faq-q th"><span class="q-num">Q17</span><span class="q-text">สั่งซื้อช่องทางไหนได้บ้าง?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <ul>
+              <li><strong>LINE @thebuddypatch</strong> — เร็วสุด มีแอดมินตอบสด · <a href="https://lin.ee/VjYsn62" style="color:var(--deep);text-decoration:underline">คลิกแอดเลย</a></li>
+              <li><strong>Shopee</strong> — รับชำระทุกวิธี ใช้โค้ดส่วนลดได้</li>
+              <li><strong>Lazada</strong> — ส่งจาก Lazada Warehouse</li>
+              <li><strong>TikTok Shop</strong> — โปรพิเศษ live สด</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ส่งฟรี ฟรี ค่าจัดส่ง shipping ems">
+          <div class="faq-q th"><span class="q-num">Q18</span><span class="q-text">ส่งฟรีจริงหรือ? ค่าจัดส่งเท่าไร?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>ส่งฟรี EMS ทั่วไทย</strong> เมื่อสั่งซื้อตั้งแต่ ฿500 ขึ้นไป</p>
+            <p>ยอดต่ำกว่า ฿500 ค่าจัดส่งเริ่มต้น ฿40 (ลงทะเบียน) หรือ ฿60 (EMS) แล้วแต่ช่องทาง</p>
+            <p><span class="pill-tag">Tip</span> สั่งครบ ฿500 = ส่งฟรีอัตโนมัติ</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="กี่วัน นาน ส่ง เมื่อไหร่ จัดส่ง">
+          <div class="faq-q th"><span class="q-num">Q19</span><span class="q-text">จัดส่งกี่วัน? เมื่อไหร่ได้รับ?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <ul>
+              <li><strong>สั่งภายใน 14:00 น.</strong> ทำการจัดส่งวันเดียวกัน</li>
+              <li><strong>สั่งหลัง 14:00 น.</strong> จัดส่งวันถัดไป (ไม่รวมวันหยุดของบริษัทขนส่ง)</li>
+              <li><strong>กรุงเทพ &amp; ปริมณฑล:</strong> ได้รับภายใน 1 วันทำการ</li>
+              <li><strong>ต่างจังหวัด:</strong> 1–3 วันทำการ</li>
+            </ul>
+            <p>ระบบจะส่งหมายเลขพัสดุให้ทาง LINE / Email อัตโนมัติเมื่อจัดส่งเรียบร้อย</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ชำระเงิน วิธี โอน บัตร เครดิต ปลายทาง">
+          <div class="faq-q th"><span class="q-num">Q20</span><span class="q-text">ชำระเงินวิธีไหนได้บ้าง?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>รับชำระทุกช่องทาง:</p>
+            <ul>
+              <li>โอนผ่านธนาคาร / PromptPay / QR Code</li>
+              <li>บัตรเครดิต / เดบิต (ผ่าน Shopee &amp; Lazada)</li>
+              <li>TrueMoney Wallet, ShopeePay, LinePay</li>
+              <li><strong>เก็บเงินปลายทาง</strong> (COD) — เฉพาะคำสั่งซื้อผ่าน LINE</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== Cat 5 · Returns & Subscription ========== -->
+    <div class="cat-section cat-5" id="cat-returns">
+      <div class="cat-header">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+        </div>
+        <h2 class="th"><small>05 · Returns &amp; Care</small>คืนสินค้า &amp; รับประกัน</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item" data-keywords="คืน เปลี่ยน return refund ของเสีย">
+          <div class="faq-q th"><span class="q-num">Q21</span><span class="q-text">นโยบายคืนสินค้า / เปลี่ยนสินค้า?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>เปลี่ยน/คืนได้ภายใน 7 วัน</strong> ในกรณี:</p>
+            <ul>
+              <li>สินค้าชำรุดจากการขนส่ง</li>
+              <li>ได้รับสินค้าไม่ตรงกับที่สั่ง</li>
+              <li>ซองยังไม่ได้เปิดใช้งาน (เปลี่ยนรุ่น/สูตร)</li>
+            </ul>
+            <p>หากเปิดซองและใช้แล้ว <strong>ไม่สามารถคืนได้</strong> ตามมาตรฐานสุขอนามัยของผลิตภัณฑ์เสริมอาหาร</p>
+            <p>ติดต่อแอดมินผ่าน LINE พร้อมรูปสินค้าและเลขออเดอร์</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="เก็บ รักษา หมดอายุ shelf life storage">
+          <div class="faq-q th"><span class="q-num">Q22</span><span class="q-text">เก็บรักษายังไง? อายุการใช้งานนานแค่ไหน?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>อายุ 24 เดือน</strong> นับจากวันผลิต (ดูที่ก้นซอง)</p>
+            <p><strong>วิธีเก็บ:</strong></p>
+            <ul>
+              <li>เก็บในที่แห้ง อุณหภูมิห้อง (15–30°C)</li>
+              <li>หลีกเลี่ยงแสงแดดตรง · ห้ามเก็บในตู้เย็นแช่แข็ง</li>
+              <li>ปิดซองให้สนิทหลังใช้ทุกครั้ง — กาว/สารอาจเสื่อมถ้าเปิดทิ้งไว้</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="สมัครสมาชิก subscribe โปรโมชั่น">
+          <div class="faq-q th"><span class="q-num">Q23</span><span class="q-text">มี subscription / โปรโมชั่นพิเศษมั้ย?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p>ปัจจุบันยังไม่มีระบบ subscription แบบรายเดือน แต่มี:</p>
+            <ul>
+              <li><strong>โปรเดือนนี้:</strong> ราคาพิเศษรายสูตร · ดูที่หน้าโปรโมชั่น</li>
+              <li><strong>โค้ดส่วนลดสำหรับลูกค้าใหม่:</strong> ทักแอดมิน LINE เพื่อรับโค้ด</li>
+              <li><strong>VIP Member:</strong> ซื้อครบ 3 ออเดอร์ รับสิทธิ์ส่วนลด 10% สำหรับออเดอร์ถัดไป</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" data-keywords="ติดต่อ แอดมิน admin contact ตอบกลับ">
+          <div class="faq-q th"><span class="q-num">Q24</span><span class="q-text">ติดต่อแอดมินได้ช่องทางไหน?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a th">
+            <p><strong>ช่องทางหลัก:</strong></p>
+            <ul>
+              <li><strong>LINE OA:</strong> @thebuddypatch — ตอบเร็วสุด · ทุกวัน 09:00–22:00</li>
+              <li><strong>IG:</strong> @thebuddybybetterday — DM</li>
+              <li><strong>Email:</strong> hello@thebuddypatch.com — ตอบใน 24 ชม.</li>
+            </ul>
+            <p>เวลาทำการแอดมิน: ทุกวัน 09:00–22:00 น. · นอกเวลา ระบบ chatbot ตอบคำถามเบื้องต้นได้ทันที</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- No results -->
+    <div class="no-results" id="noResults">
+      <h3 class="th">ไม่พบคำถามที่ตรงกับ "<span id="searchTermDisplay"></span>"</h3>
+      <p class="th">ลองค้นด้วยคำอื่น หรือทักแอดมิน LINE เพื่อสอบถามเพิ่มเติม</p>
+    </div>
+
+    <!-- Peel.Stick.Feel block -->
+    <div class="faq-footer-card">
+      <div class="footer-patches">
+        <div class="fp fp-teal"></div>
+        <div class="fp fp-marigold"></div>
+        <div class="fp fp-lilac"></div>
+      </div>
+      <h3>Peel. Stick. Feel.</h3>
+      <p class="ff-sub">Happier Moment In A Patch</p>
+      <a href="https://lin.ee/VjYsn62" class="ff-cta">ติดต่อ LINE OA →</a>
+      <div class="ff-secondary">
+        <a href="https://shopee.co.th/thebuddypatch" target="_blank" rel="noopener" class="ff-pill"><span class="dot shopee"></span><span class="th">สั่งซื้อบน Shopee</span></a>
+        <a href="https://vt.tiktok.com/ZMhTkqQxS/?page=TikTokShop" target="_blank" rel="noopener" class="ff-pill"><span class="dot" style="background:#000"></span><span class="th">สั่งซื้อบน TikTok</span></a>
+        <a href="https://www.lazada.co.th/shop/the-buddy-patch" target="_blank" rel="noopener" class="ff-pill"><span class="dot lazada"></span><span class="th">สั่งซื้อบน Lazada</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="wm">the buddy<span style="color:var(--teal)">+</span></div>
+        <p class="tagline">Best buddy sticks around.</p>
+        <p class="est">by Better Day · est. 2024 · Bangkok</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="index.html#products">Relax Mode</a></li>
+          <li><a href="index.html#products">Focus Mode</a></li>
+          <li><a href="index.html#products">Night Out Mode</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="https://lin.ee/VjYsn62">ติดต่อ Admin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <ul>
+          <li><a href="https://lin.ee/VjYsn62">LINE: @thebuddypatch</a></li>
+          <li><a href="https://instagram.com/thebuddybybetterday" target="_blank" rel="noopener">IG: @thebuddybybetterday</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="th">© 2026 The Buddy Patch by Better Day · *แผ่นแปะไม่มีส่วนช่วยในการรักษาโรค · อย. xx-x-xxxxx-x-xxxx</div>
+      <div class="links">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ========== ACCORDION ==========
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Close all in the same category
+      const cat = item.closest('.cat-section');
+      cat.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ========== SEARCH ==========
+  const input = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearBtn');
+  const searchWrap = document.getElementById('searchWrap');
+  const noResults = document.getElementById('noResults');
+  const searchTermDisplay = document.getElementById('searchTermDisplay');
+
+  function filter(q){
+    const term = q.trim().toLowerCase();
+    let visibleCount = 0;
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if(!term){
+        item.classList.remove('hidden');
+        visibleCount++;
+        return;
+      }
+      const txt = (item.textContent + ' ' + (item.dataset.keywords || '')).toLowerCase();
+      if(txt.includes(term)){
+        item.classList.remove('hidden');
+        item.classList.add('open');
+        visibleCount++;
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('open');
+      }
+    });
+    // Hide entire category if all its items are hidden
+    document.querySelectorAll('.cat-section').forEach(cat => {
+      const visible = cat.querySelectorAll('.faq-item:not(.hidden)').length;
+      cat.style.display = visible === 0 ? 'none' : '';
+    });
+    if(term && visibleCount === 0){
+      noResults.classList.add('show');
+      searchTermDisplay.textContent = q;
+    } else {
+      noResults.classList.remove('show');
+    }
+  }
+
+  input.addEventListener('input', e => {
+    const v = e.target.value;
+    searchWrap.classList.toggle('has-text', v.length > 0);
+    filter(v);
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    searchWrap.classList.remove('has-text');
+    filter('');
+    input.focus();
+  });
+
+  // ========== SCROLL HEADER ==========
+  const nav = document.querySelector('header.nav');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+      nav.style.boxShadow = '0 4px 24px rgba(14,31,42,0.06)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
